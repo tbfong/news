@@ -27,9 +27,12 @@ results = Geocoder.search(params["q"])
     forecast = ForecastIO.forecast("#{lat}", "#{long}").to_hash
     @current_temperature = forecast["currently"]["temperature"]
     @conditions = forecast["currently"]["summary"]
+    @forecast = forecast ["daily"]["data"]
     for day in forecast["daily"]["data"]
+   
   puts "A high temperature of #{day["temperatureHigh"]} and #{day["summary"]}."
-    end
+   end
+
     view "ask"
   # do everything else
 end

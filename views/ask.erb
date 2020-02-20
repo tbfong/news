@@ -18,7 +18,7 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Geocoding</title>
+    <title><%=@name%> </title>
   </head>
   <body>
 
@@ -28,6 +28,14 @@
 
     <p> This is the information you want <%= @latlong %> </p> 
     <p> The current temperature is <%= @current_temperature%> </p>
+    <p> <ul>
+    <% for day in @forecast %>
+    <li> A high temperature of <%="#{day["temperatureHigh"]}"%> and <%="#{day["summary"]}"%> </li>
+   <%end %> </p> 
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
