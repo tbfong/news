@@ -12,7 +12,7 @@ ForecastIO.api_key = "d51d353173f631626954563c7998d849"
 #variables
 
 
- forecast = ForecastIO.forecast(42.0574063,-87.6722787).to_hash
+ forecast = ForecastIO.forecast(51.5073219, -0.1276474).to_hash
 
 get "/" do
 
