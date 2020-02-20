@@ -24,10 +24,11 @@
 
     <div class="container mt-5">
       <h1>Geocoding</h1>
+      <form action="/news">
+        <input type="text" name="q">
+        <button type="submit">Go there</submit>
+      </form>
     </div>
-
-    <p> This is the information you want <%= @latlong %> </p> 
-    <p> The current temperature is <%= @current_temperature%> </p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
