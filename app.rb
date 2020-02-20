@@ -12,8 +12,7 @@ ForecastIO.api_key = "d51d353173f631626954563c7998d849"
 #variables
 
 
- forecast = ForecastIO.forecast(51.5073219, -0.1276474).to_hash
-
+ 
 get "/" do
 
   # show a view that asks for the location
@@ -23,9 +22,14 @@ end
 get "/news" do
 results = Geocoder.search(params["q"])
     lat_long = results.first.coordinates # => [lat, long]
-    @latlong = "#{lat_long[0]}, #{lat_long[1]}"
+    lat= "#{lat_long[0]}"
+    long= "#{lat_long[1]}"
+    forecast = ForecastIO.forecast("#{lat}", "#{long}").to_hash
     @current_temperature = forecast["currently"]["temperature"]
     @conditions = forecast["currently"]["summary"]
+    for day in forecast["daily"]["data"]
+  puts "A high temperature of #{day["temperatureHigh"]} and #{day["summary"]}."
+    end
     view "ask"
   # do everything else
 end
