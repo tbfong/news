@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -18,31 +18,51 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title><%=@name%> </title>
+    <title>Weather and News</title>
   </head>
   <body>
 
-    <div class="container mt-5">
+    <div class="container">
+    <div class="row">
+    <div class ="col text-center">
       <h1>Weather and News</h1>
     </div>
-
-    <p> The current temperature is <%= @current_temperature%> </p>
-    <p> Forecasted weather conditions: </p> 
+    </div>
+    </div>
+<hr class="my-4">
+      <div class="container">
+          <div class="row mt-4">
+              <div class="col text-center">
+    <h3> The current temperature is <%= @current_temperature%> </h3>
+    <div class="row mt-4"> </div> 
+    <h4> Forecasted weather conditions: </h4> 
     <p> <ul>
     <% for day in @forecast %>
     <li> A high temperature of <%="#{day["temperatureHigh"]}"%> and <%="#{day["summary"]}"%> </li>
    <%end %> </p> </ul> 
+   </div> 
+   </div> 
+   </div> 
 
-<div class="container mt-5">
-    <h2>Top Headlines</h1>
+<div class="container">
+<div class="row">
+<div class ="col text-center">
+    <h1>Top Headlines</h1>
 </div> 
+</div>
+</div> 
+<hr class="my-4">
+      <div class="container">
+          <div class="row mt-4">
+              <div class="col text-center">
  <p> <ul>
   <% for title in @paper %> 
-  <li> <%="#{title["title"]}"%> <bl> 
-  <bl>
-  URL: <%="#{title["url"]}"%> </li>
+  <li> <a href = <%="#{title["url"]}"%>> <%="#{title["title"]}"%> </a> </li>
  <% end %> 
   </p> 
+</div>
+</div>
+</div> 
 
 
 
