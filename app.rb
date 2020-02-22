@@ -8,6 +8,8 @@ before { puts "Parameters: #{params}" }
 
 # enter your Dark Sky API key here
 ForecastIO.api_key = "d51d353173f631626954563c7998d849"
+url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=109eb1783fbe4c9b9ff2912a04d0354f"
+news = HTTParty.get(url).parsed_response.to_hash
 
 #variables
 
@@ -21,6 +23,8 @@ end
 
 get "/news" do
 results = Geocoder.search(params["q"])
+url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=109eb1783fbe4c9b9ff2912a04d0354f"
+news = HTTParty.get(url).parsed_response.to_hash
     lat_long = results.first.coordinates # => [lat, long]
     lat= "#{lat_long[0]}"
     long= "#{lat_long[1]}"
@@ -28,10 +32,9 @@ results = Geocoder.search(params["q"])
     @current_temperature = forecast["currently"]["temperature"]
     @conditions = forecast["currently"]["summary"]
     @forecast = forecast ["daily"]["data"]
-    for day in forecast["daily"]["data"]
-   
-  puts "A high temperature of #{day["temperatureHigh"]} and #{day["summary"]}."
-   end
+    @paper = news["articles"]
+    
+  
 
     view "ask"
   # do everything else

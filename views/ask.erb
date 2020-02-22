@@ -26,12 +26,27 @@
       <h1>Weather and News</h1>
     </div>
 
-    <p> This is the information you want <%= @latlong %> </p> 
     <p> The current temperature is <%= @current_temperature%> </p>
+    <p> Forecasted weather conditions: </p> 
     <p> <ul>
     <% for day in @forecast %>
     <li> A high temperature of <%="#{day["temperatureHigh"]}"%> and <%="#{day["summary"]}"%> </li>
-   <%end %> </p> 
+   <%end %> </p> </ul> 
+
+<div class="container mt-5">
+    <h2>Top Headlines</h1>
+</div> 
+ <p> <ul>
+  <% for title in @paper %> 
+  <li> <%="#{title["title"]}"%> <bl> 
+  <bl>
+  URL: <%="#{title["url"]}"%> </li>
+ <% end %> 
+  </p> 
+
+
+
+
 
 
 
