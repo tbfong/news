@@ -32,13 +32,15 @@
       <div class="container">
           <div class="row mt-4">
               <div class="col text-center">
-    <h3> The current temperature is <%= @current_temperature%> and <%= @conditions %>. </h3>
+    <p> The current temperature is <%= @current_temperature%> and <%= @conditions %>. </p>
     <div class="row mt-4"> </div> 
     <h4> Forecasted weather conditions: </h4> 
     <p> <ul>
     <% for day in @forecast %>
     <li> A high temperature of <%="#{day["temperatureHigh"]}"%> and <%="#{day["summary"]}"%> </li>
    <%end %> </p> </ul> 
+   <div class="row mt-4"> </div> 
+   <div class="row mt-4"> </div> 
    </div> 
    </div> 
    </div> 
@@ -46,7 +48,7 @@
 <div class="container">
 <div class="row">
 <div class ="col text-center">
-    <h1>Top Headlines</h1>
+    <h4>Top Headlines</h4>
 </div> 
 </div>
 </div> 
